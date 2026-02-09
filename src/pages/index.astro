@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Sopita Store">
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Cosméticos & ropa</p>
+      <img class="hero__title-image" src="/assets/SopitaStore.png" alt="Sopita Store" />
+      <p class="hero__subtitle">
+        Belleza y estilo en un solo lugar. Descubre nuestros favoritos y coordina tu entrega.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#catalogo">Ver productos</a>
+        <a class="button button--ghost" href="/carrito">Ir al carrito</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section__header">
+        <h2>Destacados del catálogo</h2>
+        <p>Descubre nuestros productos más populares.</p>
+      </div>
+      <div class="carousel" id="productCarousel">
+        <div class="carousel__track" id="carouselTrack"></div>
+        <div class="carousel__tabs" id="carouselTabs" role="tablist"></div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section">
+      <div class="section__header">
+        <h2>Catálogo de cosméticos y ropa</h2>
+        <p>Agrega tus favoritos y arma tu pedido en minutos.</p>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="section section--highlight">
+      <div>
+        <h2>Entrega rápida y personalizada</h2>
+        <p>
+          Cada pedido se prepara a mano. Nos comunicaremos contigo para coordinar el horario de
+          entrega más conveniente.
+        </p>
+      </div>
+      <div class="stats">
+        <div>
+          <strong>24h</strong>
+          <span>Tiempo estimado</span>
+        </div>
+        <div>
+          <strong>100%</strong>
+          <span>Atención directa</span>
+        </div>
+        <div>
+          <strong>Seguro</strong>
+          <span>Pago protegido</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

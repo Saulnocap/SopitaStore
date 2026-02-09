@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Pago | Sopita Store">
+  <main>
+    <section class="section">
+      <div class="checkout">
+        <h2>Información para pago</h2>
+        <p class="muted">Completa tus datos para coordinar la entrega.</p>
+        <form id="checkoutForm" class="checkout__form">
+          <fieldset>
+            <legend>Datos del comprador</legend>
+            <label>
+              Nombre completo
+              <input type="text" name="fullName" required placeholder="Nombre y apellido" />
+            </label>
+            <label>
+              Correo electrónico
+              <input type="email" name="email" required placeholder="correo@ejemplo.com" />
+            </label>
+            <label>
+              Teléfono
+              <div class="phone-field">
+                <input type="hidden" name="countryCode" id="countryCode" value="+56" />
+                <div class="country-select" id="countrySelect">
+                  <button type="button" class="country-select__trigger" id="countryTrigger">
+                    <span class="flag" aria-hidden="true">🇨🇱</span>
+                    Chile (+56)
+                  </button>
+                  <div class="country-select__menu" id="countryMenu">
+                    <div class="country-select__search">
+                      <input
+                        type="search"
+                        id="countrySearch"
+                        name="countrySearch"
+                        placeholder="Buscar país"
+                        aria-label="Buscar país"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  required
+                  placeholder="+56 9 1234 5678"
+                />
+              </div>
+            </label>
+            <label>
+              Dirección de entrega
+              <input type="text" name="address" required placeholder="Calle, número, depto." />
+            </label>
+            <div class="field-row">
+              <label>
+                Ciudad
+                <input type="text" name="city" required placeholder="Ciudad" />
+              </label>
+              <label>
+                Código postal
+                <input type="text" name="zip" required placeholder="123456" />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Detalles de pago</legend>
+            <label>
+              Nombre en la tarjeta
+              <input type="text" name="cardName" required placeholder="Como aparece en la tarjeta" />
+            </label>
+            <label>
+              Número de tarjeta
+              <input type="text" name="cardNumber" id="cardNumber" required placeholder="0000 0000 0000 0000" />
+            </label>
+            <div class="field-row">
+              <label>
+                Expiración
+                <input type="text" name="expiry" id="expiry" required placeholder="MM/AA" />
+              </label>
+              <label>
+                CVV
+                <input type="password" name="cvv" required placeholder="123" />
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="button button--primary button--full">Confirmar compra</button>
+          <p class="form-note">Procesaremos tu pedido y te contactaremos para coordinar la entrega.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+</Base>

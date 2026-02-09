@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sopita Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__content">
+        <a class="navbar__logo" href="#">
+          <img src="assets/logo.png" alt="Logo Sopita Store" />
+        </a>
+        <div class="navbar__actions">
+          <a class="navbar__cart" href="#carrito" aria-label="Ir al carrito">
+            <span class="navbar__cart-icon">🛒</span>
+          </a>
+          <div class="cart-dropdown" id="cartDropdown" aria-hidden="true">
+            <div class="cart-dropdown__header">
+              <span>Carrito</span>
+              <button
+                class="cart-dropdown__close"
+                type="button"
+                aria-label="Cerrar"
+              >
+                ✕
+              </button>
+            </div>
+            <div class="cart-dropdown__items" id="cartDropdownItems"></div>
+            <div class="cart-dropdown__footer">
+              <strong>Total</strong>
+              <span id="cartDropdownTotal">$0.00</span>
+            </div>
+          </div>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Cambiar modo"
+          >
+            <span class="theme-toggle__icon" aria-hidden="true">☀︎</span>
+            <span class="theme-toggle__switch" aria-hidden="true"></span>
+            <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Cosméticos & ropa</p>
+        <img
+          class="hero__title-image"
+          src="assets/SopitaStore.png"
+          alt="Sopita Store"
+        />
+        <p class="hero__subtitle">
+          Belleza y estilo en un solo lugar. Descubre nuestros favoritos y
+          coordina tu entrega.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#catalogo">Ver productos</a>
+          <a class="button button--ghost" href="#carrito">Ir al carrito</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section__header">
+          <h2>Destacados del catálogo</h2>
+          <p>Descubre nuestros productos más populares.</p>
+        </div>
+        <div class="carousel" id="productCarousel">
+          <div class="carousel__track" id="carouselTrack"></div>
+          <div class="carousel__tabs" id="carouselTabs" role="tablist"></div>
+        </div>
+      </section>
+      <section id="catalogo" class="section">
+        <div class="section__header">
+          <h2>Catálogo de cosméticos y ropa</h2>
+          <p>Agrega tus favoritos y arma tu pedido en minutos.</p>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section id="carrito" class="section">
+        <div class="section__header">
+          <h2>Tu carrito</h2>
+          <p>Revisa tu selección antes de continuar con el pago.</p>
+        </div>
+        <div class="cart">
+          <div class="cart__header">
+            <h3>Resumen de compra</h3>
+            <button class="button button--ghost" id="clearCart">Vaciar</button>
+          </div>
+          <div class="cart__items" id="cartItems">
+            <p class="empty-state">Tu carrito está vacío.</p>
+          </div>
+          <div class="cart__summary">
+            <div>
+              <span>Total</span>
+              <strong id="cartTotal">$0.00</strong>
+            </div>
+            <span class="cart__note">Envío calculado al finalizar.</span>
+          </div>
+          <a class="button button--primary button--full" href="#checkout"
+            >Continuar con la compra</a
+          >
+        </div>
+      </section>
+
+      <section id="checkout" class="section">
+        <div class="checkout">
+          <h2>Información para pago</h2>
+          <p class="muted">Completa tus datos para coordinar la entrega.</p>
+          <form id="checkoutForm" class="checkout__form">
+            <fieldset>
+              <legend>Datos del comprador</legend>
+              <label>
+                Nombre completo
+                <input
+                  type="text"
+                  name="fullName"
+                  required
+                  placeholder="Nombre y apellido"
+                />
+              </label>
+              <label>
+                Correo electrónico
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="correo@ejemplo.com"
+                />
+              </label>
+              <label>
+                Teléfono
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  placeholder="+56 9 1234 5678"
+                />
+              </label>
+              <label>
+                Dirección de entrega
+                <input
+                  type="text"
+                  name="address"
+                  required
+                  placeholder="Calle, número, depto."
+                />
+              </label>
+              <div class="field-row">
+                <label>
+                  Ciudad
+                  <input
+                    type="text"
+                    name="city"
+                    required
+                    placeholder="Ciudad"
+                  />
+                </label>
+                <label>
+                  Código postal
+                  <input type="text" name="zip" required placeholder="123456" />
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Detalles de pago</legend>
+              <label>
+                Nombre en la tarjeta
+                <input
+                  type="text"
+                  name="cardName"
+                  required
+                  placeholder="Como aparece en la tarjeta"
+                />
+              </label>
+              <label>
+                Número de tarjeta
+                <input
+                  type="text"
+                  name="cardNumber"
+                  required
+                  placeholder="0000 0000 0000 0000"
+                />
+              </label>
+              <div class="field-row">
+                <label>
+                  Expiración
+                  <input
+                    type="text"
+                    name="expiry"
+                    required
+                    placeholder="MM/AA"
+                  />
+                </label>
+                <label>
+                  CVV
+                  <input
+                    type="password"
+                    name="cvv"
+                    required
+                    placeholder="123"
+                  />
+                </label>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="button button--primary button--full">
+              Confirmar compra
+            </button>
+            <p class="form-note">
+              Procesaremos tu pedido y te contactaremos para coordinar la
+              entrega.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section--highlight">
+        <div>
+          <h2>Entrega rápida y personalizada</h2>
+          <p>
+            Cada pedido se prepara a mano. Nos comunicaremos contigo para
+            coordinar el horario de entrega más conveniente.
+          </p>
+        </div>
+        <div class="stats">
+          <div>
+            <strong>24h</strong>
+            <span>Tiempo estimado</span>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span>Atención directa</span>
+          </div>
+          <div>
+            <strong>Seguro</strong>
+            <span>Pago protegido</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__socials">
+        <a
+          href="https://www.youtube.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="YouTube"
+        >
+          <span>▶︎</span>
+        </a>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram"
+        >
+          <span>◎</span>
+        </a>
+        <a
+          href="https://www.tiktok.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="TikTok"
+        >
+          <span>♪</span>
+        </a>
+      </div>
+      <p>© 2024 Sopita Store · Hecho con cariño.</p>
+    </footer>
+
+    <button
+      class="back-to-top"
+      id="backToTop"
+      type="button"
+      aria-label="Volver arriba"
+    >
+      ↑
+    </button>
+
+    <div class="toast" id="toast" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

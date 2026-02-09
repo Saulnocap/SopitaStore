@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Carrito | Sopita Store" bodyClass="page--cart">
+  <main>
+    <section class="section">
+      <div class="section__header">
+        <h2>Tu carrito</h2>
+        <p>Revisa tu selección antes de continuar con el pago.</p>
+      </div>
+      <div class="cart">
+        <div class="cart__header">
+          <h3>Resumen de compra</h3>
+          <button class="button button--ghost" id="clearCart">Vaciar</button>
+        </div>
+        <div class="cart__items" id="cartItems">
+          <p class="empty-state">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart__summary">
+          <div>
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+          </div>
+          <span class="cart__note">Envío calculado al finalizar.</span>
+        </div>
+        <a class="button button--primary button--full" href="/pago" id="continueToPayment">
+          Continuar con la compra
+        </a>
+      </div>
+    </section>
+
+    <div class="modal" id="emptyCartModal" aria-hidden="true">
+      <div class="modal__content">
+        <span class="modal__emoji">😔</span>
+        <h3>Aún no has agregado nada a tu carrito</h3>
+        <a class="button button--primary" href="/#catalogo">Ver catálogo</a>
+      </div>
+    </div>
+  </main>
+</Base>
